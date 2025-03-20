@@ -39,7 +39,7 @@
                         </a>
                     </li>
                     <li class="nav-item mb-lg-1 mb-0">
-                        <a href="{% url 'studentform' %}" class="nav-link text-light d-flex align-items-center px-lg-0 px-2">
+                        <a href="{% url 'studentregister' %}" class="nav-link text-light d-flex align-items-center px-lg-0 px-2">
                             <i class="bi bi-person-fill-add fs-4 mx-lg-2 mx-0"></i>
                             <span class="ms-1 d-none d-lg-inline fs-6">
                                 Cadastrar aluno
@@ -80,6 +80,7 @@
         </aside>
         <div id="content" class="col d-flex align-items-center justify-content-center flex-column h-100">
             <!-- Div contendo o conteúdo principal da página -->
+            {% if students %}
             <div class="d-flex flex-column align-items-center justify-content-center border border-tertiary rounded-2 p-4" style="min-width: 60%">
                     <table class="table">
                         <tr>
@@ -92,7 +93,6 @@
                             <th scope="col" class="text-center">Curso</th>
                             <th scope="col" class="text-center">Série</th>
                             <th scope="col" class="text-center"></th>
-                            <th scope="col" class="text-center"></th>
                         </tr>
                         {% for student in students %}
                         <tr>
@@ -104,12 +104,19 @@
                             <td class="text-center">{{ student.birthdate }}</td>
                             <td class="text-center">{{ student.student_course }}</td>
                             <td class="text-center">{{ student.student_grade }}</td>
-                            <td class="text-center p-1"><a href="{% url 'studentedit' student.id %}" class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></a></td>
-                            <td class="text-center p-1"><a href="{% url 'studentremove' student.id %}" class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></a></td>
+                            <td class="text-center p-1 g-1">
+                                <a href="{% url 'studentedit' student.id %}" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </a>
+                                <a href="{% url 'studentremove' student.id %}" class="btn btn-sm btn-danger">
+                                    <i class="bi bi-trash-fill"></i>
+                                </a>
+                            </td>
                         </tr>
                         {% endfor %}
                     </table>
             </div>
+            {% endif %}
         </div>
     </div>
 </section>

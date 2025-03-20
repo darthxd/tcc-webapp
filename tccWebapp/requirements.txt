@@ -1,5 +1,6 @@
 django
 django-crispy-forms
+django-cleanup
 crispy-bootstrap5
 dotenv
 psycopg2-binary

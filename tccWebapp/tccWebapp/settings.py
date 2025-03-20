@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cleanup.apps.CleanupConfig',
     'crispy_forms',
     'crispy_bootstrap5',
-    'students',
-    'main'
+    'students'
 ]
 
 MIDDLEWARE = [
@@ -142,8 +142,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_URL = 'static/'
 
-MEDIA_ROOT = [os.path.join(BASE_DIR, 'media')]
-STATIC_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = 'uploads/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

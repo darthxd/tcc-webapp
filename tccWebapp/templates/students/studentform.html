@@ -80,17 +80,30 @@
         </aside>
         <div id="content" class="col d-flex align-items-center justify-content-center flex-column h-100">
             <!-- Div contendo o conteúdo principal da página -->
-                <form action="{% url 'studentregister' %}" method="post" class="d-flex flex-column align-items-center justify-content-center border border-tertiary rounded-2 py-5 px-md-5 px-2" style="min-width: 60%">
+                <form enctype="multipart/form-data" action="" method="post" class="d-flex flex-column align-items-center justify-content-center border border-tertiary rounded-2 py-5 px-md-5 px-2" style="min-width: 60%">
                     <!-- Formulário para cadastrar o aluno -->
+                    {% if type == 'create' %}
                     <h1 class="me-md-auto me-0 mb-3">Cadastrar aluno</h1>
-                    <p class="text-secondary mb-4 me-auto">Verifique se os campos estão corretos antes de cadastrar o aluno.</p>
+                    {% elif type == 'update' %}
+                    <h1 class="me-md-auto me-0 mb-3">Atualizar aluno</h1>
+                    {% endif %}
+
+                    <p class="text-secondary mb-4 me-auto">Verifique se os campos estão corretos antes de enviar.</p>
                     {% load crispy_forms_tags %}
                     {% csrf_token %}
                     {% crispy form %}
+
+                    {% if type == 'create' %}
                     <div class="ms-md-auto ms-0 mt-3">
                         <input type="reset" value="Limpar" class="btn btn-outline-secondary px-4">
-                        <input type="submit" value="{{ submit }}" class="btn btn-primary px-4">
+                        <input type="submit" value="Cadastrar" class="btn btn-primary px-4">
                     </div>
+                    {% elif type == 'update' %}
+                    <div class="ms-md-auto ms-0 mt-3">
+                        <a href="{% url 'home' %}" class="btn btn-outline-secondary px-4">Voltar</a>
+                        <input type="submit" value="Salvar" class="btn btn-primary px-4">
+                    </div>
+                    {% endif %}
                 </form>
         </div>
     </div>

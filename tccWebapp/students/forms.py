@@ -17,7 +17,7 @@ class StudentForm(ModelForm):
             'student_grade':'Série',
             'photo':'Foto'
         }
-        widgets = {'birthdate': DateInput(attrs={'type':'date'})}
+        widgets = {'birthdate': DateInput(format=('%Y-%m-%d'), attrs={'type':'date'})}
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper(self)
@@ -39,8 +39,8 @@ class StudentForm(ModelForm):
                 css_class='row w-100'
             ),
             Div(
-                Field('email', wrapper_class='col-md-8 col-12 px-1'),
-                Field('photo', wrapper_class='col-md-4 col-12 px-1'),
+                Field('email', wrapper_class='col-md-6 col-12 px-1'),
+                Field('photo', wrapper_class='col-md-6 col-12 px-1'),
                 css_class='row w-100'
             ),
         )
