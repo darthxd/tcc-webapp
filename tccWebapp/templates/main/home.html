@@ -80,29 +80,35 @@
         </aside>
         <div id="content" class="col d-flex align-items-center justify-content-center flex-column h-100">
             <!-- Div contendo o conteúdo principal da página -->
-            <div class="d-flex flex-column align-items-center justify-content-center border border-tertiary rounded-2 py-5 px-md-5 px-2" style="min-width: 60%">
-                <table class="table">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">RM</th>
-                        <th scope="col">Telefone</th>
-                        <th scope="col">E-mail</th>
-                        <th scope="col">Data de nascimento</th>
-                        <th scope="col">N</th>
-                    </tr>
-                    {% for student in students %}
-                    <tr>
-                        <td>{{ student.id }}</td>
-                        <td>{{ student.name }}</td>
-                        <td>{{ student.rm }}</td>
-                        <td>{{ student.phone }}</td>
-                        <td>{{ student.email }}</td>
-                        <td>{{ student.birthdate }}</td>
-                        <td>{{ student.is_in_school }}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
+            <div class="d-flex flex-column align-items-center justify-content-center border border-tertiary rounded-2 p-4" style="min-width: 60%">
+                    <table class="table">
+                        <tr>
+                            <th scope="col" class="text-center">ID</th>
+                            <th scope="col" class="text-center">Nome</th>
+                            <th scope="col" class="text-center">RM</th>
+                            <th scope="col" class="text-center">Telefone</th>
+                            <th scope="col" class="text-center">E-mail</th>
+                            <th scope="col" class="text-center">Data de nascimento</th>
+                            <th scope="col" class="text-center">Curso</th>
+                            <th scope="col" class="text-center">Série</th>
+                            <th scope="col" class="text-center"></th>
+                            <th scope="col" class="text-center"></th>
+                        </tr>
+                        {% for student in students %}
+                        <tr>
+                            <td class="text-center">{{ student.id }}</td>
+                            <td class="text-center">{{ student.name }}</td>
+                            <td class="text-center">{{ student.rm }}</td>
+                            <td class="text-center">{{ student.phone }}</td>
+                            <td class="text-center">{{ student.email }}</td>
+                            <td class="text-center">{{ student.birthdate }}</td>
+                            <td class="text-center">{{ student.student_course }}</td>
+                            <td class="text-center">{{ student.student_grade }}</td>
+                            <td class="text-center p-1"><a href="{% url 'studentedit' student.id %}" class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></a></td>
+                            <td class="text-center p-1"><a href="{% url 'studentremove' student.id %}" class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
             </div>
         </div>
     </div>

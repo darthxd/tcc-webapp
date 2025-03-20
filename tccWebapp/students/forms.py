@@ -6,13 +6,16 @@ from .models import *
 class StudentForm(ModelForm):
     class Meta:
         model = StudentModel
-        fields = ['name','rm','birthdate','email','phone']
+        fields = ['name','rm','birthdate','email','phone','student_course','student_grade','photo']
         labels = {
             'name':'Nome',
             'rm':'RM',
             'birthdate':'Data de nascimento',
             'email':'E-mail',
-            'phone':'Telefone'
+            'phone':'Telefone',
+            'student_course':'Curso',
+            'student_grade':'Série',
+            'photo':'Foto'
         }
         widgets = {'birthdate': DateInput(attrs={'type':'date'})}
     def __init__(self, *args, **kwargs):
@@ -30,5 +33,14 @@ class StudentForm(ModelForm):
                 Field('birthdate', wrapper_class='col-md-6 col-12 px-1'),
                 css_class='row w-100'
             ),
-            Field('email', wrapper_class='w-100 px-1')
+            Div(
+                Field('student_course', wrapper_class='col-md-6 col-12 px-1'),
+                Field('student_grade', wrapper_class='col-md-6 col-12 px-1'),
+                css_class='row w-100'
+            ),
+            Div(
+                Field('email', wrapper_class='col-md-8 col-12 px-1'),
+                Field('photo', wrapper_class='col-md-4 col-12 px-1'),
+                css_class='row w-100'
+            ),
         )

@@ -84,14 +84,21 @@ WSGI_APPLICATION = 'tccWebapp.wsgi.application'
 
 tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': tmpPostgres.path.replace('/', ''),
+#         'USER': tmpPostgres.username,
+#         'PASSWORD': tmpPostgres.password,
+#         'HOST': tmpPostgres.hostname,
+#         'PORT': 5432,
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path.replace('/', ''),
-        'USER': tmpPostgres.username,
-        'PASSWORD': tmpPostgres.password,
-        'HOST': tmpPostgres.hostname,
-        'PORT': 5432,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -118,9 +125,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -134,6 +141,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_URL = 'static/'
+
+MEDIA_ROOT = [os.path.join(BASE_DIR, 'media')]
+STATIC_URL = 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
