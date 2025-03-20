@@ -1,0 +1,5 @@
+django
+crispy-forms
+crispy-bootstrap5
+dotenv
+psycopg2-binary
