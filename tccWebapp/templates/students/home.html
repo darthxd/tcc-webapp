@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Página inicial</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+    >
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+</head>
+<body>
+<section class="container-fluid overflow-auto">
+    <div class="row vh-100 overflow-auto">
+        <aside id="sidebar" class="col-12 col-lg-3 col-xl-2 px-lg-2 px-0 bg-dark d-flex sticky-top">
+            <!-- Barra lateral que se transforma em navbar -->
+            <div class="d-flex flex-lg-column flex-row flex-grow-1 align-items-center align-items-lg-start px-3 pt-lg-2 text-white">
+                <a href="#" class="d-flex align-items-center pt-lg-2 mb-md-0 text-white text-decoration-none">
+                    <span class="fs-lg-2 fs-3 text-nowrap">Site TCC</span>
+                </a>
+                <hr class="w-100 d-lg-inline d-none">
+                <ul
+                        class="nav flex-lg-column flex-row flex-nowrap flex-shrink-1 mb-lg-auto mb-0
+                        justify-content-center align-items-center align-items-lg-start ms-lg-0 ms-auto"
+                        id="menu"
+                >
+                    <li class="nav-item mb-lg-1 mb-0">
+                        <a href="{% url 'home' %}" class="nav-link text-light d-flex align-items-center px-lg-0 px-2">
+                            <i class="bi bi-table fs-4 mx-lg-2 mx-0"></i>
+                            <span class="ms-1 d-none d-lg-inline fs-6">
+                                Alunos cadastrados
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-lg-1 mb-0">
+                        <a href="#" class="nav-link text-primary d-flex align-items-center px-lg-0 px-2">
+                            <i class="bi bi-person-fill-add fs-4 mx-lg-2 mx-0"></i>
+                            <span class="ms-1 d-none d-lg-inline fs-6">
+                                Cadastrar aluno
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-lg-1 mb-0">
+                        <a href="#" class="nav-link text-light d-flex align-items-center px-lg-0 px-2">
+                            <i class="bi bi-bell-fill fs-4 mx-lg-2 mx-0"></i>
+                            <span class="ms-1 d-none d-lg-inline fs-6">
+                                Avisos
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-lg-1 mb-0">
+                        <a href="#" class="nav-link text-light d-flex align-items-center px-lg-0 px-2">
+                            <i class="bi bi-gear-fill fs-4 mx-lg-2 mx-0"></i>
+                            <span class="ms-1 d-none d-lg-inline fs-6">
+                                Configurações
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <hr class="w-100 d-lg-inline d-none">
+                <div class="dropdown mb-lg-4 mt-lg-2 ms-auto ms-lg-0 flex-shrink-1">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://cdn.discordapp.com/avatars/613715798816718919/3a3b62fd4f4e9c7f5baebfe57a803675.png?size=1024" alt="hugenerd" width="28" height="28" class="rounded-circle">
+                        <span class="d-none d-lg-inline mx-1 fw-bold ms-2">Test</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li><a href="#" class="dropdown-item">Configurações</a></li>
+                        <li><a href="#" class="dropdown-item">Minha conta</a></li>
+                        <li><hr class="my-2"></li>
+                        <li><a href="#" class="dropdown-item">Desconectar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        <div id="content" class="col d-flex align-items-center justify-content-center flex-column h-100">
+           
+        </div>
+    </div>
+</section>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>
